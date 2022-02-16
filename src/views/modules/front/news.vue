@@ -37,7 +37,7 @@
         prop="ndate"
         header-align="center"
         align="center"
-        label="新闻时间"
+        label="新闻发布时间"
         width="120"
        >
       </el-table-column>

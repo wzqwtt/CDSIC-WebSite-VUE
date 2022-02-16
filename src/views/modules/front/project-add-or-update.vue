@@ -38,7 +38,13 @@
         </el-switch>
     </el-form-item>
     <el-form-item label="成果发布时间" prop="pdate">
-      <el-input v-model="dataForm.pdate" placeholder="成果发布时间"></el-input>
+           <div class="block">
+        <el-date-picker
+          v-model="dataForm.pdate"
+          type="date"
+          placeholder="选择日期">
+        </el-date-picker>
+     </div>
     </el-form-item>
     <!-- <el-form-item label="如果展示轮播图，这里写入顺序，默认不展示（值为-1）" prop="porder">
       <el-input v-model="dataForm.porder" placeholder="如果展示轮播图，这里写入顺序，默认不展示（值为-1）"></el-input>

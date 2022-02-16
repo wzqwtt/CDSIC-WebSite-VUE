@@ -15,7 +15,7 @@
       <el-input v-model="dataForm.ncontent" placeholder="新闻内容"></el-input>
     </el-form-item>
 
-    <el-form-item label="新闻时间" prop="ndate">
+    <el-form-item label="新闻发布时间" prop="ndate">
       <div class="block">
         <el-date-picker
           v-model="dataForm.ndate"

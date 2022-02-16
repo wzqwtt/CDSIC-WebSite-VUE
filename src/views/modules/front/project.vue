@@ -33,7 +33,8 @@
         prop="pdate"
         header-align="center"
         align="center"
-        label="成果发布时间">
+        label="成果发布时间"
+        width="120">
       </el-table-column>
       <el-table-column
         prop="ptitle"
@@ -133,6 +134,7 @@
 
 <script>
   import AddOrUpdate from './project-add-or-update'
+  import moment from 'moment'
   export default {
     data () {
       return {
@@ -169,6 +171,10 @@
         }).then(({data}) => {
           if (data && data.code === 0) {
             this.dataList = data.page.list
+            this.dataList.forEach(element => {
+              // 格式化时间类型
+              element.pdate = moment(element.pdate).format('YYYY-MM-DD')
+            })
             this.totalPage = data.page.totalCount
           } else {
             this.dataList = []
