@@ -42,10 +42,18 @@
         label="成果标题">
       </el-table-column>
       <el-table-column
-        prop="pimage"
         header-align="center"
         align="center"
         label="成果代表性图片">
+        <template slot-scope="scope">
+          <!-- <el-image
+          style="width: 100px; height: 80px"
+          :src="scope.row.pimage"
+          fit="fill"></el-image> -->
+
+          <img :src="scope.row.pimage"  style="width: 100px; height: 80px">
+
+        </template>
       </el-table-column>
       <el-table-column
         prop="pplatform"

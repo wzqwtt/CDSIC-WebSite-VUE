@@ -1,17 +1,19 @@
 <template>
+
   <el-dialog
     :title="!dataForm.pid ? '新增' : '修改'"
     :close-on-click-modal="false"
     :visible.sync="visible">
     <el-form :model="dataForm" :rules="dataRule" ref="dataForm" @keyup.enter.native="dataFormSubmit()" label-width="150px">
-    <el-form-item label="成果发布时间" prop="pdate">
-      <el-input v-model="dataForm.pdate" placeholder="成果发布时间"></el-input>
-    </el-form-item>
+
     <el-form-item label="成果标题" prop="ptitle">
       <el-input v-model="dataForm.ptitle" placeholder="成果标题"></el-input>
     </el-form-item>
     <el-form-item label="成果代表性图片" prop="pimage">
-      <el-input v-model="dataForm.pimage" placeholder="成果代表性图片"></el-input>
+      <!-- <el-input v-model="dataForm.pimage" placeholder="成果代表性图片"></el-input> -->
+      <single-upload v-model="dataForm.pimage">
+
+      </single-upload>
     </el-form-item>
     <el-form-item label="成果发表平台" prop="pplatform">
       <el-input v-model="dataForm.pplatform" placeholder="成果发表平台"></el-input>
@@ -19,19 +21,24 @@
     <el-form-item label="成果参与研究人员" prop="pperson">
       <el-input v-model="dataForm.pperson" placeholder="成果参与研究人员"></el-input>
     </el-form-item>
-    <el-form-item label="成果主要内容" prop="pcontent">
-      <el-input v-model="dataForm.pcontent" placeholder="成果主要内容"></el-input>
-    </el-form-item>
     <el-form-item label="成果简要介绍" prop="psynopsis">
       <el-input v-model="dataForm.psynopsis" placeholder="成果简要介绍"></el-input>
     </el-form-item>
+    <el-form-item label="成果主要内容" prop="pcontent">
+      <el-input v-model="dataForm.pcontent" placeholder="成果主要内容"></el-input>
+    </el-form-item>
     <el-form-item label="是否在轮播图中展示" prop="piscarousel">
       <!-- <el-input v-model="dataForm.piscarousel" placeholder="成果是否在轮播图中展示"></el-input> -->
-                <el-switch
+        <el-switch
           v-model="dataForm.piscarousel"
           active-color="#13ce66"
-          inactive-color="#ff4949">
+          inactive-color="#ff4949"
+          :active-value="1"
+          :inactive-value="0">
         </el-switch>
+    </el-form-item>
+    <el-form-item label="成果发布时间" prop="pdate">
+      <el-input v-model="dataForm.pdate" placeholder="成果发布时间"></el-input>
     </el-form-item>
     <!-- <el-form-item label="如果展示轮播图，这里写入顺序，默认不展示（值为-1）" prop="porder">
       <el-input v-model="dataForm.porder" placeholder="如果展示轮播图，这里写入顺序，默认不展示（值为-1）"></el-input>
@@ -42,10 +49,14 @@
       <el-button type="primary" @click="dataFormSubmit()">确定</el-button>
     </span>
   </el-dialog>
+  
 </template>
 
 <script>
+  import singleUpload from "@/components/upload/singleUpload"
+
   export default {
+  components: { singleUpload },
     data () {
       return {
         visible: false,
