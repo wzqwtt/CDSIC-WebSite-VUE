@@ -16,18 +16,30 @@
       v-loading="dataListLoading"
       @selection-change="selectionChangeHandle"
       style="width: 100%;">
+
+
       <el-table-column
         type="selection"
         header-align="center"
         align="center"
         width="50">
       </el-table-column>
+      
       <el-table-column
         prop="nid"
         header-align="center"
         align="center"
         label="序号"
         width="50">
+      </el-table-column>
+
+      <el-table-column
+        prop="ndate"
+        header-align="center"
+        align="center"
+        label="新闻时间"
+        width="120"
+       >
       </el-table-column>
 
       <el-table-column
@@ -47,13 +59,6 @@
         header-align="center"
         align="center"
         label="新闻内容">
-      </el-table-column>
-
-      <el-table-column
-        prop="ndate"
-        header-align="center"
-        align="center"
-        label="新闻时间">
       </el-table-column>
 
       <el-table-column
@@ -84,6 +89,7 @@
 </template>
 
 <script>
+  import moment from 'moment'
   import AddOrUpdate from './news-add-or-update'
   export default {
     data () {
@@ -121,12 +127,9 @@
         }).then(({data}) => {
           if (data && data.code === 0) {
             this.dataList = data.page.list
-            // console.log(this.dataList)
             this.dataList.forEach(element => {
-              // 在这里格式化时间戳类型
-
-              // element.ndate = element.ndate.format("YYYY-MM-DD")
-              console.log(element.ndate)
+              // 格式化时间类型
+              element.ndate = moment(element.ndate).format('YYYY-MM-DD')
             })
             this.totalPage = data.page.totalCount
           } else {

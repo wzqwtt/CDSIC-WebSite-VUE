@@ -16,7 +16,13 @@
     </el-form-item>
 
     <el-form-item label="新闻时间" prop="ndate">
-      <el-input v-model="dataForm.ndate" placeholder="新闻时间"></el-input>
+      <div class="block">
+        <el-date-picker
+          v-model="dataForm.ndate"
+          type="date"
+          placeholder="选择日期">
+        </el-date-picker>
+     </div>
     </el-form-item>
 
 
@@ -40,6 +46,7 @@
           ncontent: '',
           nsynopsis: ''
         },
+        value1:'',
         dataRule: {
           ndate: [
             { required: true, message: '新闻时间不能为空', trigger: 'blur' }
