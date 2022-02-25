@@ -83,10 +83,10 @@
 
       
       <el-table-column
-  
         header-align="center"
         align="center"
-        label="是否在轮播图展示">
+        label="是否在轮播图展示"
+        width="100">
         <template slot-scope="scope">
           <el-switch
           v-model="scope.row.piscarousel"
@@ -207,7 +207,7 @@
       },
       // 更新是否在轮播图中展示
       updateProjectStatus(data){
-        console.log(data)
+        // console.log(data.piscarousel)
         let {pid,piscarousel} = data
         // 发送请求，修改状态
         this.$http({

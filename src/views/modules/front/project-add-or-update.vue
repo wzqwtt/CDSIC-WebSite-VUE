@@ -25,7 +25,7 @@
       <el-input v-model="dataForm.psynopsis" placeholder="成果简要介绍"></el-input>
     </el-form-item>
     <el-form-item label="成果主要内容" prop="pcontent">
-      <el-input v-model="dataForm.pcontent" placeholder="成果主要内容"></el-input>
+      <el-input type="textarea" v-model="dataForm.pcontent" placeholder="成果主要内容"></el-input>
     </el-form-item>
     <el-form-item label="是否在轮播图中展示" prop="piscarousel">
       <!-- <el-input v-model="dataForm.piscarousel" placeholder="成果是否在轮播图中展示"></el-input> -->
@@ -37,6 +37,11 @@
           :inactive-value="0">
         </el-switch>
     </el-form-item>
+
+    <!-- <el-form-item label="顺序" prop="porder">
+      <el-input v-model="dataForm.porder" placeholder="如果展示轮播图，这里写入顺序，默认不展示（值为-1）"></el-input>
+    </el-form-item> -->
+
     <el-form-item label="成果发布时间" prop="pdate">
            <div class="block">
         <el-date-picker
@@ -46,9 +51,7 @@
         </el-date-picker>
      </div>
     </el-form-item>
-    <!-- <el-form-item label="如果展示轮播图，这里写入顺序，默认不展示（值为-1）" prop="porder">
-      <el-input v-model="dataForm.porder" placeholder="如果展示轮播图，这里写入顺序，默认不展示（值为-1）"></el-input>
-    </el-form-item> -->
+
     </el-form>
     <span slot="footer" class="dialog-footer">
       <el-button @click="visible = false">取消</el-button>

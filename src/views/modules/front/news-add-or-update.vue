@@ -12,7 +12,8 @@
       <el-input v-model="dataForm.nsynopsis" placeholder="新闻简要介绍"></el-input>
     </el-form-item>
     <el-form-item label="新闻内容" prop="ncontent">
-      <el-input v-model="dataForm.ncontent" placeholder="新闻内容"></el-input>
+
+      <el-input type="textarea" v-model="dataForm.ncontent" placeholder="新闻内容"></el-input>
     </el-form-item>
 
     <el-form-item label="新闻发布时间" prop="ndate">
